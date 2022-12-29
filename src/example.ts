@@ -8,4 +8,4 @@ class User {
 }
 
 const user = new User('John');
-console.log(user)
+console.log(user);

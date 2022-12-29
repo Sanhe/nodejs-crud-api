@@ -1,6 +1,8 @@
 {
+    "execMap": {
+        "ts": "ts-node"
+    },
     "ignore":[".git", "node_modules/", "build/", "test"],
-    "watch": ["./"],
-    "exec": "npm run start",
-    "ext": "ts"
+    "ext": "ts",
+    "exec": "npx ts-node index.ts"
 }
