@@ -1,10 +1,11 @@
 class User {
-    name: string;
-    age!: number;
+  name: string;
 
-    constructor(name: string) {
-        this.name = name;
-    }
+  age!: number;
+
+  constructor(name: string) {
+    this.name = name;
+  }
 }
 
 const user = new User('John');
