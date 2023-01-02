@@ -1,24 +1,24 @@
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 
 interface IEnv {
-  PORT: string;
+  port: string;
 }
 
 const getPort = (): string => {
   const { PORT } = process.env;
 
   if (!PORT) {
-    throw new Error('PORT is not defined');
+    throw new Error('Port is not defined');
   }
 
   return PORT;
 };
 
 const getEnv = (): IEnv => {
-  dotenv.config();
+  config();
 
   return {
-    PORT: getPort(),
+    port: getPort(),
   };
 };
 

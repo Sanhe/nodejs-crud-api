@@ -3,7 +3,7 @@ import getEnv from './src/env.js';
 
 const env = getEnv();
 const serverConfig: IServerConfig = {
-  port: env.PORT,
+  port: env.port,
 };
 
 server(serverConfig);
