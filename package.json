@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "start:dev": "cross-env NODE_ENV=development nodemon",
+    "start:dev": "cross-env nodemon",
     "start:prod": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" NODE_NO_WARNINGS=1 npx webpack --config webpack.config.ts --mode production && node dist/bundle.js",
     "start:multi": "node cluster.js",
     "test": "mocha",
