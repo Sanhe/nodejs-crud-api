@@ -22,6 +22,10 @@
     "url": "https://github.com/Sanhe/nodejs-crud-api/issues"
   },
   "homepage": "https://github.com/Sanhe/nodejs-crud-api#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "devDependencies": {
     "@types/node": "^18.11.18",
     "@types/webpack": "^5.28.0",

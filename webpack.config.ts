@@ -1,6 +1,8 @@
-import { cwd } from 'node:process';
+import * as url from 'url';
 import { resolve } from 'node:path';
 import { Configuration } from 'webpack';
+
+const DIRNAME = url.fileURLToPath(new URL('.', import.meta.url));
 
 const config: Configuration = {
   entry: {
@@ -26,7 +28,7 @@ const config: Configuration = {
   },
   output: {
     filename: 'bundle.js',
-    path: resolve(cwd(), 'dist'),
+    path: resolve(DIRNAME, 'dist'),
   },
 };
 
