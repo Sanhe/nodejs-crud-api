@@ -1,10 +1,6 @@
 import { createServer } from 'http';
 
-interface IServerConfig {
-  port: string;
-}
-
-const server = ({ port }: IServerConfig) => {
+const server = (port: number) => {
   const appServer = createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Hello World');
@@ -16,4 +12,3 @@ const server = ({ port }: IServerConfig) => {
 };
 
 export default server;
-export { IServerConfig };

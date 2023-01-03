@@ -1,25 +1,29 @@
-import { config } from 'dotenv';
+import { config as dotenvConfig } from 'dotenv';
 
-interface IEnv {
-  port: string;
+interface IEnvSource {
+  PORT: number | undefined;
 }
 
-const getPort = (): string => {
-  const { PORT } = process.env;
-
-  if (!PORT) {
-    throw new Error('Port is not defined');
-  }
-
-  return PORT;
-};
+interface IEnv {
+  PORT: number;
+}
 
 const getEnv = (): IEnv => {
-  config();
+  dotenvConfig();
 
-  return {
-    port: getPort(),
+  const envSource: IEnvSource = {
+    PORT: process.env.PORT ? Number(process.env.PORT) : undefined,
   };
+
+  Object.entries(envSource).forEach(([key, value]) => {
+    if (value === undefined) {
+      throw new Error(`Missing key "${key}" in .env!`);
+    }
+  });
+
+  return envSource as IEnv;
 };
 
-export default getEnv;
+const envs = getEnv();
+
+export default envs;
