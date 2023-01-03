@@ -1,4 +1,4 @@
-import { createServer } from 'http';
+import { createServer } from 'node:http';
 
 const server = (port: number) => {
   const appServer = createServer((req, res) => {
