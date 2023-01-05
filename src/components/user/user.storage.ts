@@ -1,4 +1,4 @@
-import IUser from '../interface/userInterface';
+import IUser from './user.interface';
 
 const UserStorage: IUser[] = [];
 
