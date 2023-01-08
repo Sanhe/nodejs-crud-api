@@ -1,19 +1,43 @@
 # Simple CRUD API
 
-## Description
 This is a simple CRUD API using in-memory database underneath.
 
-## Installation
+## Overview
+
+It is built using Node.js and TypeScript.
+
+### Repository Overview
+
+- `src` - source code
+- `src/controllers` - controllers
+- `build` - compiled production code in one file `bundle.cjs`
+- `dist` - temporary directory for compiled code for build process
+
+## Presets
+
+Node.js v18.12.1 is installed.
+
+## Getting Started
+
+* Clone the repository to get the latest version of the code.
 
 ```bash
 git clone git@github.com:Sanhe/nodejs-crud-api.git
+```
 
+* Switch to dev branch.
+
+```bash
 git checkout dev
+```
 
+* Run npm installation.
+```bash
 npm ci
 ```
 
-(!) Make sure to copy `.env.example` to `.env` and update the port value if needed.
+* Copy `.env.example` to `.env` and update the API port value if needed.
+
 
 ## Run the application
 
@@ -45,3 +69,4 @@ There are 3 ways to run the application:
    the Node.js Cluster API (equal to the number of logical processor cores on the host machine, each listening on port 
    PORT + n) with a load balancer that distributes requests across them (using Round-robin algorithm). 
 
+Visit http://localhost:4000/ to see the application running. Use your port in `.env` file or calculated ports in multi-node mode.
