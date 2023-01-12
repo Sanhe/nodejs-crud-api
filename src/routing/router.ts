@@ -1,11 +1,12 @@
+import { IncomingMessage } from 'node:http';
 import routes from './routes';
 import HttpMethodType from '../http.method.type';
 import RouteType from './route.type';
-import ActionType from '../action.type';
+import ResolvedRouteType from './resolved.route.type';
 import RouteParamsType from './route.params.type';
 
-const getRawParams = (path: string, route: RouteType): string[] => {
-  const paramsString = path.replace(route.path, '');
+const getRawParams = (url: string, route: RouteType): string[] => {
+  const paramsString = url.replace(route.path, '');
   const isParamsStringEmpty = paramsString === '';
 
   if (isParamsStringEmpty) {
@@ -17,8 +18,8 @@ const getRawParams = (path: string, route: RouteType): string[] => {
   return rawParams;
 };
 
-const parseParams = (path: string, route: RouteType): RouteParamsType => {
-  const rawParams = getRawParams(path, route);
+const parseParams = (url: string, route: RouteType): RouteParamsType => {
+  const rawParams = getRawParams(url, route);
 
   const params: RouteParamsType = {};
 
@@ -31,7 +32,7 @@ const parseParams = (path: string, route: RouteType): RouteParamsType => {
 
 const findRoute = (
   httpMethod: HttpMethodType,
-  path: string
+  url: string
 ): RouteType | undefined => {
   const route = routes.find((r: RouteType) => {
     const isMethodDifferent = r.method !== httpMethod;
@@ -40,13 +41,13 @@ const findRoute = (
       return false;
     }
 
-    const isPathIncludesRoutePath = path.includes(r.path);
+    const isUrlIncludesRoutePath = url.includes(r.path);
 
-    if (!isPathIncludesRoutePath) {
+    if (!isUrlIncludesRoutePath) {
       return false;
     }
 
-    const rawParams = getRawParams(path, r);
+    const rawParams = getRawParams(url, r);
     const rawParamsLength = rawParams.length;
     const isParamsLengthDifferent = rawParamsLength !== r.params.length;
 
@@ -60,19 +61,24 @@ const findRoute = (
   return route;
 };
 
-const router = (httpMethod: HttpMethodType, path: string): ActionType => {
-  const route = findRoute(httpMethod, path);
+const resolve = async (
+  request: IncomingMessage
+): Promise<ResolvedRouteType> => {
+  const url: string = request.url?.toLowerCase() ?? '';
+  const httpMethod = request.method?.toUpperCase() as HttpMethodType;
+  const route = findRoute(httpMethod, url);
 
   if (!route) {
     throw new Error('Route not found.');
   }
 
-  const params = parseParams(path, route);
-
-  return {
+  const params = parseParams(url, route);
+  const resolvedRoute = {
     route,
     params,
   };
+
+  return resolvedRoute;
 };
 
-export default router;
+export default resolve;

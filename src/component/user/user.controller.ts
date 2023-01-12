@@ -1,45 +1,49 @@
 import * as repository from './user.repository';
 import IUser from './user.interface';
+import assertUuid from '../../assert/uuid.assert';
+import IResponseData from '../../response/response.data.interface';
+import * as responseHandler from './response/user.response.handler';
 
-const get = async (): Promise<IUser[]> => {
-  const users = await repository.findAll();
+const get = async (): Promise<IResponseData> => {
+  const entities = await repository.findAll();
 
-  return users;
+  return responseHandler.getOkResponse(entities);
 };
 
-const getOne = async (id: string) => {
-  const user = await repository.findById(id);
+const getOne = async ({ id }: IUser): Promise<IResponseData> => {
+  assertUuid(id);
 
-  return user;
+  const entity = await repository.findById(id);
+  const response = responseHandler.getFindOneResponse(entity);
+
+  return response;
 };
 
-const create = async () => {
-  const userData: IUser = {
-    id: 'test-id',
-    name: 'Alex',
-    age: 27,
-    hobbies: ['books', 'gym'],
-  };
-  const user = await repository.create(userData);
+const create = async (model: IUser): Promise<IResponseData> => {
+  const entity = await repository.create(model);
+  const response = responseHandler.getCreatedResponse(entity);
 
-  return user;
+  return response;
 };
 
-const update = async () => {
-  const userData: IUser = {
-    id: 'test-id',
-    name: 'Alex',
-    age: 35,
-    hobbies: ['books', 'box'],
-  };
-  const user = await repository.update(userData.id, userData);
+const update = async (model: IUser): Promise<IResponseData> => {
+  const { id } = model;
 
-  return user;
+  assertUuid(id);
+
+  const entity = await repository.update(id, model);
+  const response = responseHandler.getUpdatedResponse(entity);
+
+  return response;
 };
 
-const remove = async () => {
-  const userId = 'test-id';
-  await repository.remove(userId);
+const remove = async ({ id }: IUser): Promise<IResponseData> => {
+  assertUuid(id);
+
+  const isRemoved = await repository.remove(id);
+  const response = responseHandler.getDeletedResponse(isRemoved);
+
+  return response;
 };
 
 export { get, getOne, create, update, remove };

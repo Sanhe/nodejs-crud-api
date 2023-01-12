@@ -1,6 +1,9 @@
 import HttpMethodType from '../http.method.type';
-import ActionType from '../action.type';
+import ResolvedRouteType from './resolved.route.type';
 
-type RouterType = (httpMethod: HttpMethodType, path: string) => ActionType;
+type RouterType = (
+  httpMethod: HttpMethodType,
+  path: string
+) => ResolvedRouteType;
 
 export default RouterType;
