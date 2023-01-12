@@ -1,4 +1,4 @@
-import HttpBadRequestError from '../error/http.bad.request.error';
+import BadRequestError from '../error/bad.request.error';
 import { REQUIRED_FIELDS_MISSING } from '../response/response.message';
 import { IValidationRule, IValidationRules } from './validation.rule.interface';
 import IModel from '../component/model.interface';
@@ -51,7 +51,7 @@ function validateModel<T extends IModel>(
     const errorsMessages = errors.join(', ');
     const errorMessage = `${REQUIRED_FIELDS_MISSING} ${errorsMessages}`;
 
-    throw new HttpBadRequestError(errorMessage);
+    throw new BadRequestError(errorMessage);
   }
 }
 

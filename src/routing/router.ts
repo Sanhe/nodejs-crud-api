@@ -1,9 +1,11 @@
 import { IncomingMessage } from 'node:http';
 import routes from './routes';
-import HttpMethodType from '../http.method.type';
+import HttpMethodType from './http.method.type';
 import RouteType from './route.type';
 import ResolvedRouteType from './resolved.route.type';
 import RouteParamsType from './route.params.type';
+import { ERROR_MESSAGE_ROUTE_NOT_FOUND } from './route.error.message';
+import RouteNotFoundError from './route.error';
 
 const getRawParams = (url: string, route: RouteType): string[] => {
   const paramsString = url.replace(route.path, '');
@@ -69,7 +71,7 @@ const resolve = async (
   const route = findRoute(httpMethod, url);
 
   if (!route) {
-    throw new Error('Route not found.');
+    throw new RouteNotFoundError(ERROR_MESSAGE_ROUTE_NOT_FOUND);
   }
 
   const params = parseParams(url, route);

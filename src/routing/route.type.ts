@@ -1,4 +1,4 @@
-import HttpMethodType from '../http.method.type';
+import HttpMethodType from './http.method.type';
 
 type RouteType = {
   path: string;

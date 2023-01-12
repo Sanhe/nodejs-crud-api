@@ -2,20 +2,6 @@ import { constants as httpStatus } from 'http2';
 import { IUser } from '../user.interface';
 import errorResponse from './user.error.response';
 import IResponseData from '../../../response/response.data.interface';
-import NotFoundError from '../../../error/not.found.error';
-
-const getErrorResponse = (error: any): IResponseData => {
-  let response = {} as IResponseData;
-
-  // TODO: improve error handling
-  if (error instanceof NotFoundError) {
-    response = errorResponse.NOT_FOUND;
-  } else {
-    response = errorResponse.INTERNAL_SERVER_ERROR;
-  }
-
-  return response;
-};
 
 const getOkResponse = (userData: IUser[] | IUser): IResponseData => {
   return {
@@ -61,7 +47,6 @@ const getDeletedResponse = (isRemoved: boolean): IResponseData => {
 };
 
 export {
-  getErrorResponse,
   getOkResponse,
   getFindOneResponse,
   getCreatedResponse,

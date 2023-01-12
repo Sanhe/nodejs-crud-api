@@ -24,17 +24,17 @@ const resolveBody = async (request: IncomingMessage): Promise<any> => {
 };
 
 const handle = async (request: IncomingMessage): Promise<IResponseData> => {
-  const resolvedRoute: ResolvedRouteType = await resolveRoute(request);
-  const action = resolvedRoute.route.handler;
-  const body = await resolveBody(request);
-  const model = {
-    ...body,
-    ...resolvedRoute.params,
-  };
-
-  console.log('Model: ', model);
-
   try {
+    const resolvedRoute: ResolvedRouteType = await resolveRoute(request);
+    const action = resolvedRoute.route.handler;
+    const body = await resolveBody(request);
+    const model = {
+      ...body,
+      ...resolvedRoute.params,
+    };
+
+    console.log('Model: ', model);
+
     const responseData: IResponseData = await action(model);
 
     console.log('Response model data: ', responseData);
