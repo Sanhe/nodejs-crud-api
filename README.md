@@ -70,3 +70,7 @@ There are 3 ways to run the application:
    PORT + n) with a load balancer that distributes requests across them (using Round-robin algorithm). 
 
 Visit http://localhost:4000/ to see the application running. Use your port in `.env` file or calculated ports in multi-node mode.
+
+## Notes
+
+* The application uses `uuid` package with `v4` version to generate unique IDs for each record, i.e. `97befd16-6271-4862-8247-e13244628798`.

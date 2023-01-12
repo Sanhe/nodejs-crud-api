@@ -1,11 +1,14 @@
 import NotFoundError from '../error/not.found.error';
 
-function assertFound<T>(model: T, notFoundMessage: string): asserts model is T {
-  const isModelNotFound = !model || model === null || model === undefined;
+function assertIndexFound(
+  index: number,
+  notFoundMessage: string
+): asserts index is number {
+  const isIndexNotFound = index === -1;
 
-  if (isModelNotFound) {
+  if (isIndexNotFound) {
     throw new NotFoundError(notFoundMessage);
   }
 }
 
-export default assertFound;
+export { assertIndexFound };

@@ -1,13 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
 import storage from './user.storage';
 import { IUser } from './user.interface';
-import assertFound from '../../assert/found.assert';
+import { assertIndexFound } from '../../assert/found.assert';
 import { NOT_FOUND } from './user.message';
 
 const findExistingIndex = async (id: string): Promise<number> => {
   const index = storage.findIndex((user) => user.id === id);
 
-  assertFound<number | undefined>(index, NOT_FOUND);
+  assertIndexFound(index, NOT_FOUND);
 
   return index;
 };
@@ -26,8 +26,8 @@ const findById = async (id: string): Promise<IUser | undefined> => {
 
 const create = async (user: IUser): Promise<IUser> => {
   // TODO: change it after development.
-  // const id = uuidv4();
-  const id = '0388f28e-019a-4b3c-8cde-4a063f069440';
+  const id = uuidv4();
+  // const id = '0388f28e-019a-4b3c-8cde-4a063f069440';
 
   const createdUser = { ...user, id };
   storage.push(createdUser);
