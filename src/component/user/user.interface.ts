@@ -1,8 +1,10 @@
-interface IUser {
+import IModel from '../model.interface';
+
+interface IUser extends IModel {
   id?: string;
-  name: string;
+  username: string;
   age: number;
-  hobbies: string[] | [];
+  hobbies: string[];
 }
 
-export default IUser;
+export { IUser };

@@ -1,5 +1,5 @@
 import { constants as httpStatus } from 'http2';
-import IUser from '../user.interface';
+import { IUser } from '../user.interface';
 import errorResponse from './user.error.response';
 import IResponseData from '../../../response/response.data.interface';
 import NotFoundError from '../../../error/not.found.error';

@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import storage from './user.storage';
-import IUser from './user.interface';
+import { IUser } from './user.interface';
 import assertFound from '../../assert/found.assert';
 import { NOT_FOUND } from './user.message';
 
@@ -24,21 +24,21 @@ const findById = async (id: string): Promise<IUser | undefined> => {
   return user;
 };
 
-const create = async (model: IUser): Promise<IUser> => {
+const create = async (user: IUser): Promise<IUser> => {
   // TODO: change it after development.
   // const id = uuidv4();
   const id = '0388f28e-019a-4b3c-8cde-4a063f069440';
 
-  const user = { ...model, id };
-  storage.push(user);
+  const createdUser = { ...user, id };
+  storage.push(createdUser);
 
-  return user;
+  return createdUser;
 };
 
-const update = async (id: string, model: IUser): Promise<IUser> => {
+const update = async (id: string, user: IUser): Promise<IUser> => {
   const index = await findExistingIndex(id);
 
-  storage[index] = { ...model };
+  storage[index] = { ...user };
 
   return storage[index];
 };
