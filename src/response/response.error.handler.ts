@@ -25,6 +25,13 @@ const getNotFoundResponse = (message: string): IResponseData => {
   };
 };
 
+const getInternalErrorResponse = (): IResponseData => {
+  return {
+    status: httpStatus.HTTP_STATUS_INTERNAL_SERVER_ERROR,
+    data: { message: 'Internal server error' },
+  };
+};
+
 const getErrorResponseData = (error: Error | unknown): IResponseData | null => {
   let response: IResponseData | null = null;
 
@@ -36,6 +43,8 @@ const getErrorResponseData = (error: Error | unknown): IResponseData | null => {
     response = getBadRequestResponse(error.message);
   } else if (isNotFoundError(error)) {
     response = getNotFoundResponse(error.message);
+  } else {
+    response = getInternalErrorResponse();
   }
 
   return response;
