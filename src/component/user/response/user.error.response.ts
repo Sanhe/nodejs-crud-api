@@ -1,4 +1,4 @@
-import { constants as httpStatus } from 'http2';
+import { constants as httpStatus } from 'node:http2';
 import IResponseData from '../../../response/response.data.interface';
 import { INTERNAL_SERVER_ERROR } from '../../../response/response.message';
 import { NOT_FOUND } from '../user.message';

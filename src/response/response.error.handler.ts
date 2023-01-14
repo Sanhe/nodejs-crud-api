@@ -1,4 +1,4 @@
-import { constants as httpStatus } from 'http2';
+import { constants as httpStatus } from 'node:http2';
 import IResponseData from './response.data.interface';
 import BadRequestError from '../error/bad.request.error';
 import NotFoundError from '../error/not.found.error';

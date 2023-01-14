@@ -1,4 +1,4 @@
-import { constants as httpStatus } from 'http2';
+import { constants as httpStatus } from 'node:http2';
 import { IUser } from '../user.interface';
 import errorResponse from './user.error.response';
 import IResponseData from '../../../response/response.data.interface';

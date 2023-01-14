@@ -18,9 +18,12 @@
     "prettier"
   ],
   "rules": {
+    "node/no-extraneous-import": ["error", {
+        "allowModules": ["@jest/types"]
+    }],
     "prettier/prettier": "error",
     "node/no-unpublished-import": ["error", {
-      "allowModules": ["webpack"]
+      "allowModules": ["webpack", "supertest"]
     }],
     "import/extensions": [
       "error",

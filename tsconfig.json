@@ -103,12 +103,12 @@
   "exclude": [
     "node_modules",
     "build",
-    "dist"
+    "dist",
   ],
   "include": [
     "./*.ts",
     "./src/**/*.ts",
-    "./spec/**/*.ts"
+    "./__tests__/**/*.ts"
   ],
   "ts-node": {
     "esm": true,

@@ -1,4 +1,4 @@
-import { constants as httpStatus } from 'http2';
+import { constants as httpStatus } from 'node:http2';
 import { createServer, IncomingMessage, ServerResponse } from 'node:http';
 import handleRequest from './handler/request.handler';
 import handleResponse from './handler/response.handler';
@@ -6,8 +6,8 @@ import responseHeaders from './response/response.json.header';
 import { INTERNAL_SERVER_ERROR } from './response/response.message';
 import * as logger from './handler/log.handler';
 
-const server = (port: number) => {
-  const appServer = createServer(
+const addServer = (port: number) => {
+  const newServer = createServer(
     async (request: IncomingMessage, response: ServerResponse) => {
       logger.log(`${request.method} request received on port ${port}`);
 
@@ -25,9 +25,16 @@ const server = (port: number) => {
     }
   );
 
+  return newServer;
+};
+
+const server = (port: number) => {
+  const appServer = addServer(port);
+
   appServer.listen(port, () => {
     logger.log(`Server is running on PORT ${port}`);
   });
 };
 
 export default server;
+export { addServer };

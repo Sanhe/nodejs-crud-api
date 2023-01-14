@@ -9,6 +9,7 @@ type StorageType = {
   updateByIndex: (element: IUser, index: number) => Promise<void>;
   removeByIndex: (index: number) => Promise<IUser[]>;
   syncData: () => Promise<void>;
+  clear: () => Promise<void>;
 };
 
 export default StorageType;

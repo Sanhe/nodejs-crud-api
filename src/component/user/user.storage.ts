@@ -37,6 +37,10 @@ const storage: StorageType = {
       await syncStorage<StorageType>(storage);
     }
   },
+
+  clear: async () => {
+    await storage.setData([]);
+  },
 };
 
 export default storage;
