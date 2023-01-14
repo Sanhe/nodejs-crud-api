@@ -1,4 +1,4 @@
-import { IValidationRules } from '../../validation/validation.rule.interface';
+import { IValidationRules } from '../../validation/validation.rule.interface.js';
 
 const createUserRules: IValidationRules = {
   username: {

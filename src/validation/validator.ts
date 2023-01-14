@@ -1,7 +1,10 @@
-import BadRequestError from '../error/bad.request.error';
-import { REQUIRED_FIELDS_MISSING } from '../response/response.message';
-import { IValidationRule, IValidationRules } from './validation.rule.interface';
-import IModel from '../component/model.interface';
+import BadRequestError from '../error/bad.request.error.js';
+import { REQUIRED_FIELDS_MISSING } from '../response/response.message.js';
+import {
+  IValidationRule,
+  IValidationRules,
+} from './validation.rule.interface.js';
+import IModel from '../component/model.interface.js';
 
 function isFieldValid(field: unknown, rule: IValidationRule): boolean {
   if (rule.type === 'array') {

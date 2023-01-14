@@ -1,8 +1,8 @@
 import { constants as httpStatus } from 'node:http2';
-import IResponseData from './response.data.interface';
-import BadRequestError from '../error/bad.request.error';
-import NotFoundError from '../error/not.found.error';
-import RouteNotFoundError from '../routing/route.error';
+import IResponseData from './response.data.interface.js';
+import BadRequestError from '../error/bad.request.error.js';
+import NotFoundError from '../error/not.found.error.js';
+import RouteNotFoundError from '../routing/route.error.js';
 
 const isBadRequestError = (error: Error | unknown): boolean =>
   error instanceof BadRequestError;

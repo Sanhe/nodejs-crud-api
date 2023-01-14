@@ -1,15 +1,15 @@
 import { constants as httpStatus } from 'node:http2';
 import supertest from 'supertest';
-import { addServer } from '../src/server';
-import userStorage from '../src/component/user/user.storage';
-import TEST_PORT from './config/server.config';
+import { addServer } from '../src/server.js';
+import userStorage from '../src/component/user/user.storage.js';
+import TEST_PORT from './config/server.config.js';
 import {
   DEFAULT_FIRST_USER_ID,
   DEFAULT_USERS,
   USER_WITHOUT_ID,
-} from './config/users.config';
-import { INVALID_UUID } from '../src/response/response.message';
-import { NOT_FOUND } from '../src/component/user/user.message';
+} from './config/users.config.js';
+import { INVALID_UUID } from '../src/response/response.message.js';
+import { NOT_FOUND } from '../src/component/user/user.message.js';
 
 const request = supertest(addServer(TEST_PORT));
 

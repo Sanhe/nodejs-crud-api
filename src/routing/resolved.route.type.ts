@@ -1,5 +1,5 @@
-import RouteType from './route.type';
-import RouteParamsType from './route.params.type';
+import RouteType from './route.type.js';
+import RouteParamsType from './route.params.type.js';
 
 type ResolvedRouteType = {
   route: RouteType;

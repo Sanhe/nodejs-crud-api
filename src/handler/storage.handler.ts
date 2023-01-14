@@ -1,5 +1,5 @@
 import process from 'node:process';
-import StorageType from '../component/user/user.storage.type';
+import StorageType from '../component/user/user.storage.type.js';
 
 const syncStorage = async <T extends StorageType>(storage: T) => {
   const data = await storage.getData();

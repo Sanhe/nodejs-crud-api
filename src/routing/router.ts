@@ -1,11 +1,11 @@
 import { IncomingMessage } from 'node:http';
-import routes from './routes';
-import HttpMethodType from './http.method.type';
-import RouteType from './route.type';
-import ResolvedRouteType from './resolved.route.type';
-import RouteParamsType from './route.params.type';
-import { ERROR_MESSAGE_ROUTE_NOT_FOUND } from './route.error.message';
-import RouteNotFoundError from './route.error';
+import routes from './routes.js';
+import HttpMethodType from './http.method.type.js';
+import RouteType from './route.type.js';
+import ResolvedRouteType from './resolved.route.type.js';
+import RouteParamsType from './route.params.type.js';
+import { ERROR_MESSAGE_ROUTE_NOT_FOUND } from './route.error.message.js';
+import RouteNotFoundError from './route.error.js';
 
 const getRawParams = (url: string, route: RouteType): string[] => {
   const paramsString = url.replace(route.path, '');

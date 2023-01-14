@@ -1,5 +1,5 @@
-import HttpMethodType from './http.method.type';
-import IResponseData from '../response/response.data.interface';
+import HttpMethodType from './http.method.type.js';
+import IResponseData from '../response/response.data.interface.js';
 
 type RouteType = {
   path: string;

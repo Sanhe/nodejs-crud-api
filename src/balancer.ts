@@ -9,13 +9,13 @@ import {
   request as httpRequest,
 } from 'node:http';
 import { constants as httpStatus } from 'node:http2';
-import * as logger from './handler/log.handler';
-import server from './server';
-import userStorage from './component/user/user.storage';
-import { IUser } from './component/user/user.interface';
-import WorkerStorageMessageType from './worker/worker.storage.message.type';
-import responseHeaders from './response/response.json.header';
-import { INTERNAL_SERVER_ERROR } from './response/response.message';
+import * as logger from './handler/log.handler.js';
+import server from './server.js';
+import userStorage from './component/user/user.storage.js';
+import { IUser } from './component/user/user.interface.js';
+import WorkerStorageMessageType from './worker/worker.storage.message.type.js';
+import responseHeaders from './response/response.json.header.js';
+import { INTERNAL_SERVER_ERROR } from './response/response.message.js';
 
 const numCPUs = cpus().length;
 let iteration = 0;

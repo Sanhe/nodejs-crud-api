@@ -1,10 +1,10 @@
 import { constants as httpStatus } from 'node:http2';
 import { createServer, IncomingMessage, ServerResponse } from 'node:http';
-import handleRequest from './handler/request.handler';
-import handleResponse from './handler/response.handler';
-import responseHeaders from './response/response.json.header';
-import { INTERNAL_SERVER_ERROR } from './response/response.message';
-import * as logger from './handler/log.handler';
+import handleRequest from './handler/request.handler.js';
+import handleResponse from './handler/response.handler.js';
+import responseHeaders from './response/response.json.header.js';
+import { INTERNAL_SERVER_ERROR } from './response/response.message.js';
+import * as logger from './handler/log.handler.js';
 
 const addServer = (port: number) => {
   const newServer = createServer(

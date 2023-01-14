@@ -1,8 +1,8 @@
 import { constants as httpStatus } from 'node:http2';
 import supertest from 'supertest';
-import { addServer } from '../src/server';
-import userStorage from '../src/component/user/user.storage';
-import { DEFAULT_USERS } from './config/users.config';
+import { addServer } from '../src/server.js';
+import userStorage from '../src/component/user/user.storage.js';
+import { DEFAULT_USERS } from './config/users.config.js';
 
 const TEST_PORT = 3001;
 const request = supertest(addServer(TEST_PORT));

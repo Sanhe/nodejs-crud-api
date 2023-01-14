@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
-import storage from './user.storage';
-import { IUser } from './user.interface';
-import { assertIndexFound } from '../../assert/found.assert';
-import { NOT_FOUND } from './user.message';
+import storage from './user.storage.js';
+import { IUser } from './user.interface.js';
+import { assertIndexFound } from '../../assert/found.assert.js';
+import { NOT_FOUND } from './user.message.js';
 
 const findExistingIndex = async (id: string): Promise<number> => {
   const data = await storage.getData();

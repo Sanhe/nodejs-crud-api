@@ -1,10 +1,10 @@
-import * as repository from './user.repository';
-import { IUser } from './user.interface';
-import assertUuid from '../../assert/uuid.assert';
-import IResponseData from '../../response/response.data.interface';
-import * as responseHandler from './response/user.response.handler';
-import { validateModel } from '../../validation/validator';
-import { createUserRules, updateUserRules } from './user.validation.rules';
+import * as repository from './user.repository.js';
+import { IUser } from './user.interface.js';
+import assertUuid from '../../assert/uuid.assert.js';
+import IResponseData from '../../response/response.data.interface.js';
+import * as responseHandler from './response/user.response.handler.js';
+import { validateModel } from '../../validation/validator.js';
+import { createUserRules, updateUserRules } from './user.validation.rules.js';
 
 const get = async (): Promise<IResponseData> => {
   const users = await repository.findAll();

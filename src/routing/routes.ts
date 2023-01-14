@@ -1,5 +1,5 @@
-import RouteType from './route.type';
-import userRoutes from '../component/user/user.routes';
+import RouteType from './route.type.js';
+import userRoutes from '../component/user/user.routes.js';
 
 const routes: RouteType[] = [];
 

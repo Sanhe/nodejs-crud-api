@@ -1,4 +1,4 @@
-import IModel from '../model.interface';
+import IModel from '../model.interface.js';
 
 interface IUser extends IModel {
   id?: string;

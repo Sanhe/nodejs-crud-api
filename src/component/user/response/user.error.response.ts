@@ -1,7 +1,7 @@
 import { constants as httpStatus } from 'node:http2';
-import IResponseData from '../../../response/response.data.interface';
-import { INTERNAL_SERVER_ERROR } from '../../../response/response.message';
-import { NOT_FOUND } from '../user.message';
+import IResponseData from '../../../response/response.data.interface.js';
+import { INTERNAL_SERVER_ERROR } from '../../../response/response.message.js';
+import { NOT_FOUND } from '../user.message.js';
 
 const errorResponse: { [index: string]: IResponseData } = {
   NOT_FOUND: {

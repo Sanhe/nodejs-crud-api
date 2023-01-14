@@ -1,4 +1,4 @@
-import NotFoundError from '../error/not.found.error';
+import NotFoundError from '../error/not.found.error.js';
 
 function assertIndexFound(
   index: number,

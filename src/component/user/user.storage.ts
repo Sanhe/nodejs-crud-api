@@ -1,6 +1,6 @@
-import { IUser } from './user.interface';
-import StorageType from './user.storage.type';
-import { syncStorage } from '../../handler/storage.handler';
+import { IUser } from './user.interface.js';
+import StorageType from './user.storage.type.js';
+import { syncStorage } from '../../handler/storage.handler.js';
 
 const storage: StorageType = {
   data: [],
