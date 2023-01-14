@@ -1,7 +1,7 @@
 interface IValidationRule {
   required: boolean;
   type: string;
-  rule?: (value: any) => boolean;
+  rule?: (value: Array<unknown>) => boolean;
 }
 
 interface IValidationRules {

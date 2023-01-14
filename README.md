@@ -32,8 +32,9 @@ git checkout dev
 ```
 
 * Run npm installation.
+
 ```bash
-npm ci
+npm install
 ```
 
 * Copy `.env.example` to `.env` and update the API port value if needed.

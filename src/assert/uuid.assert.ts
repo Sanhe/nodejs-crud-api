@@ -2,7 +2,7 @@ import { validate as validateUuid } from 'uuid';
 import BadRequestError from '../error/bad.request.error';
 import { INVALID_UUID } from '../response/response.message';
 
-function assertUuid(value: any): asserts value is string {
+function assertUuid(value: unknown): asserts value is string {
   const isInvalidUuid = typeof value !== 'string' || !validateUuid(value);
 
   if (isInvalidUuid) {

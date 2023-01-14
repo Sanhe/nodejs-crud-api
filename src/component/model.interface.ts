@@ -1,5 +1,5 @@
 interface IModel {
-  [index: string]: any;
+  [index: string]: unknown;
 }
 
 export default IModel;

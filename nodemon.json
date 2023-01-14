@@ -3,6 +3,5 @@
         "ts": "ts-node"
     },
     "ignore":[".git", ".idea", "node_modules", "build", "dist", "test"],
-    "ext": "ts",
-    "exec": "npx ts-node index.ts"
+    "ext": "ts"
 }

@@ -4,7 +4,7 @@ import assertUuid from '../../assert/uuid.assert';
 import IResponseData from '../../response/response.data.interface';
 import * as responseHandler from './response/user.response.handler';
 import { validateModel } from '../../validation/validator';
-import { createUserRules, updateUserRules } from './validation.rules';
+import { createUserRules, updateUserRules } from './user.validation.rules';
 
 const get = async (): Promise<IResponseData> => {
   const users = await repository.findAll();

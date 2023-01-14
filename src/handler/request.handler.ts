@@ -3,6 +3,7 @@ import ResolvedRouteType from '../routing/resolved.route.type';
 import resolveRoute from '../routing/router';
 import IResponseData from '../response/response.data.interface';
 import getErrorResponseData from '../response/response.error.handler';
+import IModel from '../component/model.interface';
 
 const resolveBody = async (request: IncomingMessage): Promise<any> => {
   const buffers = [];
@@ -31,13 +32,9 @@ const handle = async (request: IncomingMessage): Promise<IResponseData> => {
     const model = {
       ...body,
       ...resolvedRoute.params,
-    };
-
-    console.log('Model: ', model);
+    } as IModel;
 
     const responseData: IResponseData = await action(model);
-
-    console.log('Response model data: ', responseData);
 
     return responseData;
   } catch (error) {

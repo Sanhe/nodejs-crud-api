@@ -1,5 +1,6 @@
 import * as userController from './user.controller';
 import RouteType from '../../routing/route.type';
+import { IUser } from './user.interface';
 
 const routes: RouteType[] = [
   {

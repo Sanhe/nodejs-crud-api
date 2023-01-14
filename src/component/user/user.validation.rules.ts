@@ -12,7 +12,7 @@ const createUserRules: IValidationRules = {
   hobbies: {
     required: true,
     type: 'array',
-    rule: (arr: Array<any>): boolean => {
+    rule: (arr: Array<unknown>): boolean => {
       return arr.every((item) => typeof item === 'string');
     },
   },

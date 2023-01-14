@@ -7,7 +7,12 @@ node_modules/
 # JetBrains IDE
 .idea/
 
+# VSCode
+.vscode/
+
+# Build files
 build/
 dist/
 
+# Environment variables
 .env

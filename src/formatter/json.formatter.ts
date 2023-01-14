@@ -1,4 +1,4 @@
-const format = (data: any) => {
+const format = (data: unknown) => {
   const formattedData = JSON.stringify(data);
 
   return formattedData;

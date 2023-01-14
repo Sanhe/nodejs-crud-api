@@ -1,5 +1,5 @@
 interface IResponseData {
-  data: any;
+  data: unknown;
   status: number;
 }
 

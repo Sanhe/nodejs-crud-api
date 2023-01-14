@@ -5,9 +5,9 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "start:dev": "nodemon",
+    "start:dev": "nodemon --exec 'npx ts-node index.ts'",
     "start:prod": "npx tsc && npx webpack --config webpack.config.js --mode production && node build/bundle.cjs",
-    "start:multi": "node cluster.js",
+    "start:multi": "nodemon --exec 'npx ts-node cluster.ts'",
     "test": "mocha",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix"

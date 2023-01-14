@@ -3,7 +3,7 @@ import { REQUIRED_FIELDS_MISSING } from '../response/response.message';
 import { IValidationRule, IValidationRules } from './validation.rule.interface';
 import IModel from '../component/model.interface';
 
-function isFieldValid(field: any, rule: IValidationRule): boolean {
+function isFieldValid(field: unknown, rule: IValidationRule): boolean {
   if (rule.type === 'array') {
     const isNotArray = !Array.isArray(field);
 
