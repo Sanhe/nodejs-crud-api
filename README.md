@@ -9,7 +9,6 @@ It is built using Node.js and TypeScript.
 ### Repository Overview
 
 - `src` - source code
-- `src/controllers` - controllers
 - `build` - compiled production code in one file `bundle.cjs`
 - `dist` - temporary directory for compiled code for build process
 
@@ -71,6 +70,54 @@ There are 3 ways to run the application:
    PORT + n) with a load balancer that distributes requests across them (using Round-robin algorithm). 
 
 Visit http://localhost:4000/ to see the application running. Use your port in `.env` file or calculated ports in multi-node mode.
+
+## Using the application
+
+It needs to use the next structure of the request body in POST and PUT requests (without id):
+
+[User Interface](./src/component/user/user.interface.ts)
+
+There is a Postman [collection](./user.postman_collection.json). You can import it to your Postman and use it.
+Don't forget to set environment variables in Postman, i.e. {{URL}}, {{USER_ID}}.
+
+### Create a new user
+
+```bash
+POST /api/users
+```
+
+### Get a user
+
+```bash
+GET /api/users/:id
+```
+
+### Update a user
+
+```bash
+PUT /api/users/:id
+```
+
+### Delete a user
+
+```bash
+DELETE /api/users/:id
+```
+
+### Get all users
+
+```bash
+GET /api/users
+```
+
+## Testing
+
+* Run integration tests:
+
+```bash
+npm run test
+```
+
 
 ## Notes
 
