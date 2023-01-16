@@ -7,6 +7,9 @@ const config: Config.InitialOptions = {
   testMatch: ['**/__tests__/**/*.test.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/', '/build/'],
   verbose: true,
+  moduleNameMapper: {
+    '(.+)\\.js': '$1',
+  },
 };
 
 export default config;

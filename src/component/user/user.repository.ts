@@ -3,8 +3,11 @@ import storage from './user.storage.js';
 import { IUser } from './user.interface.js';
 import { assertIndexFound } from '../../assert/found.assert.js';
 import { NOT_FOUND } from './user.message.js';
-import cloneCleanModelByProperties from '../../handler/model.handler';
-import { userPropertiesCreate, userPropertiesUpdate } from './user.properties';
+import cloneCleanModelByProperties from '../../handler/model.handler.js';
+import {
+  userPropertiesCreate,
+  userPropertiesUpdate,
+} from './user.properties.js';
 
 const findExistingIndex = async (id: string): Promise<number> => {
   const data = await storage.getData();

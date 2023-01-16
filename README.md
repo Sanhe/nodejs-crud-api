@@ -64,7 +64,8 @@ There are 3 ways to run the application:
    npm run start:prod
    ```
 
-   This command will build the application using `webpack` to the `build/bundle.cjs` file and run it.
+   This command will transpile the application using `webpack` into `js` files in temporary folder `dist`   
+   and then build it into `build/bundle.cjs` and finally run it.
 
 
 3. Run the application in a multi-node `Cluster` environment:
