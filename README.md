@@ -50,14 +50,22 @@ There are 3 ways to run the application:
    ```
 
    This command will run the application in development mode with `nodemon` and `ts-node` packages.
+   If the logging is enabled in `.env`, the logs will be printed to the console with a message, i.e.
+   
+   ```bash
+   Server is running on PORT 4000
+   ``` 
+   
+   After that it's possible to make requests to the API. 
 
-2. Run the application in production mode:
+4. Run the application in production mode:
 
    ```bash
    npm run start:prod
    ```
 
    This command will build the application using `webpack` to the `build/bundle.cjs` file and run it.
+
 
 3. Run the application in a multi-node `Cluster` environment:
 

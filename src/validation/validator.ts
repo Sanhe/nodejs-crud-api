@@ -39,13 +39,13 @@ function validateModel<T extends IModel>(
     const isRequired = rule.required;
 
     if (isRequired && isKeyMissedInModel) {
-      errors.push(`Field ${key} is required`);
+      errors.push(`Field '${key}' is required`);
     } else if (isKeyInModel) {
       const modelKey = model[key as keyof T];
       const isValueValid = isFieldValid(modelKey, rule);
 
       if (!isValueValid) {
-        errors.push(`Field ${key} has not valid type or value`);
+        errors.push(`Field '${key}' has not valid type or value`);
       }
     }
   });

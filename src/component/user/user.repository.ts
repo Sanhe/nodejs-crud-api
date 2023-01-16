@@ -3,6 +3,8 @@ import storage from './user.storage.js';
 import { IUser } from './user.interface.js';
 import { assertIndexFound } from '../../assert/found.assert.js';
 import { NOT_FOUND } from './user.message.js';
+import cloneCleanModelByProperties from '../../handler/model.handler';
+import { userPropertiesCreate, userPropertiesUpdate } from './user.properties';
 
 const findExistingIndex = async (id: string): Promise<number> => {
   const data = await storage.getData();
@@ -14,7 +16,7 @@ const findExistingIndex = async (id: string): Promise<number> => {
 };
 
 const findAll = async (): Promise<IUser[]> => {
-  const users = storage.getData();
+  const users: IUser[] = await storage.getData();
 
   return users;
 };
@@ -29,7 +31,11 @@ const findById = async (id: string): Promise<IUser | undefined> => {
 const create = async (user: IUser): Promise<IUser> => {
   const id = uuidv4();
 
-  const createdUser = { ...user, id };
+  const cleanModel: IUser = cloneCleanModelByProperties(
+    user,
+    userPropertiesCreate
+  );
+  const createdUser: IUser = { ...cleanModel, id };
   await storage.push(createdUser);
 
   return createdUser;
@@ -38,10 +44,14 @@ const create = async (user: IUser): Promise<IUser> => {
 const update = async (id: string, user: IUser): Promise<IUser> => {
   const index = await findExistingIndex(id);
 
-  await storage.updateByIndex({ ...user }, index);
+  const cleanModel: IUser = cloneCleanModelByProperties(
+    user,
+    userPropertiesUpdate
+  );
+  await storage.updateByIndex({ ...cleanModel }, index);
 
   const data = await storage.getData();
-  const updated = data[index];
+  const updated: IUser = data[index];
 
   return updated;
 };

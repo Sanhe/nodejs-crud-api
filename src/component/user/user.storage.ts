@@ -38,7 +38,7 @@ const storage: StorageType = {
     }
   },
 
-  clear: async () => {
+  clear: async (): Promise<void> => {
     await storage.setData([]);
   },
 };
