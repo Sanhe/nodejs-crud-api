@@ -78,6 +78,8 @@ There are 3 ways to run the application:
    the Node.js Cluster API (equal to the number of logical processor cores on the host machine, each listening on port 
    PORT + n) with a load balancer that distributes requests across them (using Round-robin algorithm). 
 
+   Please wait until all the worker servers start and then make requests to the API.
+
 Visit http://localhost:4000/ to see the application running. Use your port in `.env` file or calculated ports in multi-node mode.
 
 ## Using the application
